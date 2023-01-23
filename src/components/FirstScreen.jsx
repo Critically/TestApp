@@ -17,7 +17,7 @@ export default function FirstScreen() {
     return (
       <View style={styles.item}>
         {item.urlToImage && (
-          <TouchableOpacity style={{ width: '20%', height: 75 }} onPress={() => onPress(item.urlToImage)}>
+          <TouchableOpacity style={styles.imageContainer} onPress={() => onPress(item.urlToImage)}>
             <Image source={{ uri: item.urlToImage }} resizeMode="contain" style={styles.image} />
           </TouchableOpacity>
         )}
@@ -47,21 +47,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#ececec',
     flex: 1,
     flexDirection: 'column',
+    alignItems: 'flex-start',
     width: '100%'
   },
+  imageContainer: { width: '20%' },
   image: {
-    width: '100%',
-    height: '100%'
+    flex: 1
   },
   item: {
     flexDirection: 'row',
+    justifyContent: 'center',
     width: '100%',
     backgroundColor: '#ffff',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: 15
   },
   description: {
     marginLeft: '3%',
-    width: '75%',
-    justifyContent: 'center'
+    width: '75%'
   }
 })
